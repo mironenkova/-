@@ -1,0 +1,15 @@
+# Дисперсионный анализ 
+
+# загрузка нужных библиотек
+import pandas as pd
+from scipy.stats import f_oneway
+
+# Загрузка excel-файла
+data = pd.read_excel('D:\washingmashines.xlsx')
+
+# Проведение ANOVA-анализа
+anova_results = f_oneway(data['great'], data['good'], data['middle'])
+
+print('Результаты ANOVA-анализа:')
+print('Статистика F:', anova_results.statistic)
+print('p-value:', anova_results.pvalue)
